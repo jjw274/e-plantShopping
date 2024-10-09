@@ -268,7 +268,19 @@ const handlePlantsClick = (e) => {
         </div>
         {!showCart? (
         <div className="product-grid">
-
+             {plantsArray.map((plant) => (
+        <div key={plant.id} className="product-card">
+          <img src={plant.image} alt={plant.name} className="product-image" />
+          <h3>{plant.name}</h3>
+          <p>{plant.description}</p>
+          <p>${plant.cost}</p>
+          <button
+            className="add-to-cart-btn"
+            onClick={() => handleAddToCart(plant)}
+            disabled={addedToCart[plant.id]}
+          >
+            {addedToCart[plant.id] ? 'Added to Cart' : 'Add to Cart'}
+          </button>
 
         </div>
  ) :  (
